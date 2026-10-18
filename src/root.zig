@@ -1,6 +1,7 @@
-const Srl = @import("./FileFormats/Srl.zig");
+const FileListing = @import("./root/FileListing.zig");
+const Srl = @import("root/FileFormats/Srl.zig");
 
-// Test block to include all files which contain tests
-test {
-    _ = Srl;
+pub fn init(bytes: []const u8) FileListing {
+    const srl = Srl.init(bytes);
+    return srl.file_listing;
 }
